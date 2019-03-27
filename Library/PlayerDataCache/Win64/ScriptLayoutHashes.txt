@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/BPC/Desktop/Game3110_Networking/Build/Game3110_Networking.exe
+F:/Github/UnityNetworkLab/Build/Game3110_Networking.exe
 SceneListBegin?
 Assets/Networking_Lab2.unity
 SceneListEnd?

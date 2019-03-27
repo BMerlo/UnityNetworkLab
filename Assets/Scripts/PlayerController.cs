@@ -15,7 +15,16 @@ public class PlayerController : NetworkBehaviour
     private float m_transformMsgTimer = 2.0f;
     public float m_updateTimePosition = 0.0f;
     public float m_updateTimePositionRate = 0.5f;
+
+    /*
+    public override void OnStartClient(NetworkClient client)
+    {
+        Debug.Log("OnStartClient");
+        client.RegisterHandler(GameStateMsg.msgId, OnGameStateMsg);
+    }*/
+
     // Use this for initialization
+
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
@@ -23,13 +32,29 @@ public class PlayerController : NetworkBehaviour
         CustomNetworkManager.singleton.client.RegisterHandler(TransformMessage.MsgId, OnTransformMsg);
     }
 
+     protected void OnGameStateMsg(NetworkMessage netMsg)
+    {
+        GameStateMsg msg = netMsg.ReadMessage<GameStateMsg>();
+        Debug.Log("OnGameStateMsg msg.m_netId: " + msg.m_netId);
+        Debug.Log("OnGameStateMsg netId: " + netId);
+        //sent from other machine
+        //net ids match, update this replica
+        if (msg.m_netId == netId)
+        {
+            this.transform.position = msg.m_position;
+            Debug.Log("OnGameStateMsg Position: " + msg.m_position);
+        }
+        
+    }
+
+
     protected void OnTransformMsg(NetworkMessage msg)
     {
         TransformMessage transformMsg = msg.ReadMessage<TransformMessage>();
 
-        Debug.Log("OnTransformMsg: netId: " + netId);
-        Debug.Log("OnTransformMsg: msgNetId: " + transformMsg.netId);
-        Debug.Log("OnTransformMsg: position: " + transformMsg.position);
+        Debug.Log("OnTransformMsg: NetId: " + netId);
+        Debug.Log("OnTransformMsg: MsgNetId: " + transformMsg.netId);
+        Debug.Log("OnTransformMsg: Position: " + transformMsg.position);
 
     }
 
