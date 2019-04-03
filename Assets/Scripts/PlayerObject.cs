@@ -54,5 +54,9 @@ public class PlayerObject : NetworkBehaviour {
         }
         
     }
-    
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        Debug.Log("OnStartServer");
+    }
 }

@@ -760,7 +760,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1563124337704126, guid: 72cf1f95161f83f4c852fae8d18f25c5,
+  m_PlayerPrefab: {fileID: 1004518451779848, guid: 801e0fe1d07bd674aaf7d2ceb73ea3e6,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
@@ -821,6 +821,10 @@ MonoBehaviour:
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   matchName: default
-  matchSize: 4
+  matchSize: 3
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+  myColor:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.08334541, g: 1, b: 0, a: 0}
+  - {r: 0, g: 0.10499692, b: 1, a: 0}
